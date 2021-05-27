@@ -7,9 +7,52 @@
     <groupId>com.macro.mall</groupId>
     <artifactId>mall-learning</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <modules>
         <module>mall-tiny</module>
+        <module>mall-tiny-01</module>
+        <module>mall-tiny-02</module>
+        <module>mall-tiny-03</module>
+        <module>mall-tiny-04</module>
+        <module>mall-tiny-05</module>
+        <module>mall-tiny-06</module>
+        <module>mall-tiny-07</module>
+        <module>mall-tiny-08</module>
+        <module>mall-tiny-09</module>
+        <module>mall-tiny-aop</module>
+        <module>mall-tiny-apm</module>
+        <module>mall-tiny-arthas</module>
+        <module>mall-tiny-boot</module>
+        <module>mall-tiny-delay</module>
+        <module>mall-tiny-devtools</module>
+        <module>mall-tiny-docker</module>
+        <module>mall-tiny-docker-compose</module>
+        <module>mall-tiny-docker-file</module>
+        <module>mall-tiny-docker-plugin</module>
+        <module>mall-tiny-drone</module>
+        <module>mall-tiny-dynamic-sql</module>
+        <module>mall-tiny-elasticsearch</module>
+        <module>mall-tiny-elk</module>
+        <module>mall-tiny-erupt</module>
+        <module>mall-tiny-fabric</module>
+        <module>mall-tiny-flyway</module>
+        <module>mall-tiny-generator</module>
+        <module>mall-tiny-hutool</module>
+        <module>mall-tiny-jenkins</module>
+        <module>mall-tiny-jwt</module>
+        <module>mall-tiny-knife4j</module>
+        <module>mall-tiny-log</module>
+        <module>mall-tiny-lombok</module>
+        <module>mall-tiny-mqtt</module>
+        <module>mall-tiny-oss</module>
+        <module>mall-tiny-plus</module>
+        <module>mall-tiny-powerjob</module>
+        <module>mall-tiny-quartz</module>
+        <module>mall-tiny-rabbit</module>
+        <module>mall-tiny-redis</module>
+        <module>mall-tiny-stream</module>
+        <module>mall-tiny-swagger</module>
     </modules>
 
 </project>
