@@ -33,15 +33,27 @@ import java.util.List;
  */
 @Configuration
 @EnableWebSecurity
+// 开启注解权限
 @EnableGlobalMethodSecurity(prePostEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UmsAdminService adminService;
+    /**
+     * 登录后没有权限处理
+     */
     @Autowired
     private RestfulAccessDeniedHandler restfulAccessDeniedHandler;
+    /**
+     * 没有登录，或token失效
+     */
     @Autowired
     private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
+    /**
+     * 用于配置需要拦截的url路径、jwt过滤器及出异常后的处理器
+     * @param httpSecurity
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf()// 由于使用的是JWT，我们这里不需要csrf
@@ -79,6 +91,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(restAuthenticationEntryPoint);
     }
 
+    /**
+     * 用于配置UserDetailsService及PasswordEncoder
+     * @param auth
+     * @throws Exception
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService())
@@ -90,9 +107,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * 用户登录
+     * @return
+     */
     @Bean
+    @Override
     public UserDetailsService userDetailsService() {
-        //获取登录用户信息
+        // 获取登录用户信息 AdminUserDetails --- 用户信息 + 用户权限
         return username -> {
             UmsAdmin admin = adminService.getAdminByUsername(username);
             if (admin != null) {

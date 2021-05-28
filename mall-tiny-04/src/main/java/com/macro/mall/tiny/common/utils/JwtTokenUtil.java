@@ -95,6 +95,7 @@ public class JwtTokenUtil {
 
     /**
      * 判断token是否已经失效
+     * token中保存失效时间
      */
     private boolean isTokenExpired(String token) {
         Date expiredDate = getExpiredDateFromToken(token);
@@ -111,6 +112,7 @@ public class JwtTokenUtil {
 
     /**
      * 根据用户信息生成token
+     * 用户名、生成日期
      */
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
